@@ -5,8 +5,11 @@ import sys
 import gc
 import operator
 
+
 reload(sys)
 sys.setdefaultencoding('utf8') #设置默认编码
+
+from log import Log
 
 class PDF2HTML(object):
     def __init__(self, pdf_path, html_path, password="", codec='utf-8', bias_param=[1.5, 2]):
@@ -46,6 +49,7 @@ class PDF2HTML(object):
             self.chinese_str('!'),
             self.chinese_str('；')
         ]
+        self.logger = Log('./data2', 'task1.log')
     # print "init"
     def __enter__(self):
         # print "enter"

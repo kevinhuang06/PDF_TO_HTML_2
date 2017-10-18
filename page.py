@@ -11,7 +11,7 @@ class Line(object):
     def __init__(self, text, align, font_name, font_size, indent, num_chars, bot_left):
         self.text = text.strip()
         self.align = align
-        self.font_size = font_size
+        self.font_size = round(font_size) #四舍五入
         self.font_name = font_name.decode('gbk').encode('utf-8')
         self.indent = indent
         self.num_chars = num_chars
@@ -66,12 +66,6 @@ class Line(object):
         content = '<p {2}align="{0}">{1}</p>'.format(self.align, content, anchor)
 
         return content
-
-    def is_bold(self):
-
-        if 'Bold' in self.font_name or '黑体' in self.font_name:
-            return True
-        return False
 
     def is_sub_by_separator(self, separator):
         text_unicode = self.text.decode('utf-8')
@@ -189,7 +183,10 @@ class Pdf(object):
                         self.raw_subtitles.append(para)
 
     def max_i_key(self, i, d):
-        return sorted(d.keys(),reverse=True)[i]
+        if len(d) > i:
+            return sorted(d.keys(),reverse=True)[i]
+        else:
+            return []
 
     def extract_subtitle(self):
         self.collect_possible_subtitle()
@@ -200,15 +197,16 @@ class Pdf(object):
                 fonts[para.font_size] = []
             fonts[para.font_size].append(i)
         top_raw_id = []
-        for raw_id in fonts[self.max_i_key(0, fonts)]:
-            sub = {}
-            sub['stName'] = self.raw_subtitles[raw_id].text
-            sub['anchorId'] = self.raw_subtitles[raw_id].anchor_id()
-            sub['sub'] = []
-            self.subtitles.append(sub)
-            top_raw_id.append(raw_id)
+        if fonts: # 至少存在一个 subtitle
+            for raw_id in fonts[self.max_i_key(0, fonts)]:
+                sub = {}
+                sub['stName'] = self.raw_subtitles[raw_id].text
+                sub['anchorId'] = self.raw_subtitles[raw_id].anchor_id()
+                sub['sub'] = []
+                self.subtitles.append(sub)
+                top_raw_id.append(raw_id)
 
-        if len(fonts) > 1:
+        if len(fonts) > 1: # 存在二级标题
             top_raw_id.append(len(self.raw_subtitles)) #方便处理最后一个
             for i in range(0,len(top_raw_id)-1):
                 for raw_id in range(top_raw_id[i]+1, top_raw_id[i+1]):

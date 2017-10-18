@@ -37,11 +37,16 @@ class simplePDF2HTML(PDF2HTML):
         if bias_param:
             self.bias_param = bias_param
         print "initializing the parser setting..."
-        self.simpleParse()
+        try:
+            self.simpleParse()
+        except Exception,ex:
+            self.logger.log(0, self.pdf_path, ex)
+            print ex
+            return
 
         print "writing to the HTML file..."
         self.writeHTML()
-        pass
+        self.logger.log(3, self.pdf_path)
 
     def simpleParse(self):
         # 创建一个PDF文档解析器对象
@@ -99,6 +104,18 @@ class simplePDF2HTML(PDF2HTML):
         self.level -= 1
         self.write('</head>')
 
+    def empty_page(self, layout):
+        text_box_cc = 0
+        page_area = layout.width * layout.height
+        for x in layout:
+            if isinstance(x, LTTextBoxHorizontal):
+                text_box_cc += 1
+            if isinstance(x, LTFigure): # 单个Figure占比过大
+                if (x.width * x.height) / page_area > 0.5:
+                    return True
+        if text_box_cc is 0:
+            return True
+        return False
 
     def writeBody(self):
         self.write('<body>')
@@ -114,12 +131,14 @@ class simplePDF2HTML(PDF2HTML):
         pdf = Pdf()
         for idx, miner_page in enumerate(PDFPage.create_pages(self.document)):
             page_idx = idx + 1
-
             print 'processing page: %s'%idx
             self.interpreter.process_page(miner_page)
             # 接受该页面的LTPage对象
             layout = self.device.get_result()
 
+            if self.empty_page(layout):
+                self.logger.log(1, self.pdf_path, page_idx)
+                break
             if idx > 0:
                 self.pages.append({'PageNo': idx, 'PageContent': self.page_html})
                 self.page_html = ""
@@ -129,9 +148,10 @@ class simplePDF2HTML(PDF2HTML):
             # 页面左右上下
             page_xrange = (layout.x0, layout.x1)
 
-            content_xrange, indent_list, fontsize_list, fontname = self.get_indent_info(layout, page_xrange)
+            content_xrange, indent_list, fontsize_list = self.get_indent_info(layout, page_xrange)
             if len(indent_list) == 0 or len(fontsize_list) == 0:  # 空白页
                 print idx, "empty"
+
                 continue
             major_indents, map_indents, major_size = self.get_conclude(indent_list, fontsize_list)
             typical_length = (content_xrange[1] - content_xrange[0]) / major_size
@@ -282,14 +302,12 @@ class simplePDF2HTML(PDF2HTML):
                         for i in range(len(table_frames)):
                             # table_frames[i]
                             text_line = line.get_text()
-                            if '015年10月' in text_line:
-                                pass
                             corner1, corner2, empty = get_corners(line, False)
 
                             if table_frames[i].is_in_range(corner1) and table_frames[i].is_in_range(corner2):
                                 table_idx = i
                                 break
-                        if table_idx != -1: #只处理 第一box的第一个Line
+                        if table_idx != -1: #只处理第一box的第一项
                             break
                 in_table.append(table_idx)
                 # print "#%s"%table_idx
@@ -300,16 +318,16 @@ class simplePDF2HTML(PDF2HTML):
                             parts = {}  # location: text
                             for char in line:
                                 if isinstance(char, LTChar):
-                                    text_line = re.sub(self.replace, '', char.get_text())
-                                    if len(text_line):
+                                    text_c = re.sub(self.replace, '', char.get_text())
+                                    if len(text_c):
                                         corner1 = (char.x0, char.y1)
                                         corner2 = (char.x1, char.y0)
                                         location = table_frames[table_idx].locate(corner2)
                                         if (location):
                                             if location in parts.keys():
-                                                parts[location] += text_line
+                                                parts[location] += text_c
                                             else:
-                                                parts[location] = text_line
+                                                parts[location] = text_c
                             for location in parts.keys():
                                 table_frames[table_idx].add_data(location, parts[location])
                                 if table_frames[table_idx].font[location[0]][location[1]] == None:
@@ -366,6 +384,7 @@ class simplePDF2HTML(PDF2HTML):
         most_right = page_xrange[0]
         indent_list = {}
         fontsize_list = {}
+
         for x in layout:
             if (isinstance(x, LTTextBoxHorizontal)):
                 fontname, fontsize, location, line_width = self.get_font(x)
@@ -383,7 +402,7 @@ class simplePDF2HTML(PDF2HTML):
                 else:
                     indent_list[indent] = 1
             #elif (isinstance(x, LTFigure)):
-        return (most_left, most_right), indent_list, fontsize_list, fontname
+        return (most_left, most_right), indent_list, fontsize_list
 
     def if_close_to(self, src, dst, mode='percent', threshold=0.1):
         if mode == 'percent':
@@ -1258,8 +1277,7 @@ class simplePDF2HTML(PDF2HTML):
                         raw_lines.append((pt4, pt1))
                         raw_points[pt4].append(tmp_idx_line)
                         raw_points[pt1].append(tmp_idx_line)
-        # print raw_lines
-        # print raw_points
+
         # calculate the points included in a table, and the grids
         assert len(points_visited.keys()) == len(raw_points.keys()), "points amount and points list length do not match"
         return raw_lines, raw_points, points_visited
@@ -1306,7 +1324,7 @@ class simplePDF2HTML(PDF2HTML):
                 if line[0] in table_list[i] or line[1] in table_list[i]:
                     table_line_list[i].append(line)
                     break
-        # print table_line_list
+
         return table_list, table_line_list, divider_list
 
     def get_tables_divider_list(self, table_list, table_line_list, divider_list, bias):
@@ -1328,8 +1346,7 @@ class simplePDF2HTML(PDF2HTML):
                     tmp_ys.append(pt_y)
             tmp_xs.sort()
             tmp_ys.sort()
-            # print tmp_xs
-            # print tmp_ys
+
             # 规范一下xs和ys从而避免一个线段被分成两个的状况
 
             len_xs = len(tmp_xs)
@@ -1374,7 +1391,7 @@ class simplePDF2HTML(PDF2HTML):
                     else:
                         x_lines[tmp_x] = [tmp_y]
                 elif pt1[1] == pt2[1]:
-                    # print "same y"
+
                     tmp_y = pt1[1]
                     tmp_x = [pt1[0], pt2[0]]
                     keep_ys[tmp_y] = True
@@ -1425,7 +1442,7 @@ class simplePDF2HTML(PDF2HTML):
                 if pt1[0] == pt2[0]:  # same x
                     start_line_idx = -1
                     end_line_idx = -1
-                    # print pt1, pt2
+
                     for idx in range(len(tmp_ys)):
                         if same(tmp_ys[idx], pt1[1]):
                             start_line_idx = idx
@@ -1444,7 +1461,7 @@ class simplePDF2HTML(PDF2HTML):
                 elif pt1[1] == pt2[1]:  # same y
                     start_line_idx = -1
                     end_line_idx = -1
-                    # print pt1, pt2
+
                     for idx in range(len(tmp_xs)):
                         if same(tmp_xs[idx], pt1[0]):
                             start_line_idx = idx
@@ -1460,23 +1477,10 @@ class simplePDF2HTML(PDF2HTML):
                             divider_list[i].append((tmp_pt1, tmp_pt2))
                 else:
                     assert False, "seems that it is not a regular table"
-            # print divider_list[i]
+
         return divider_list
 
     def get_tables(self, layout,text_cols):
-        debug = self.debug_mode_on  # False #True
-        # 在debug状态画出页码的边框
-        if debug:
-            page_range = {
-                "left": layout.x0,
-                "right": layout.x1,
-                "top": layout.y1,
-                "bottom": layout.y0
-            }
-            offset_x = -1.0 * (page_range["right"] + page_range["left"]) / 2.0
-            offset_y = -1.0 * (page_range["top"] + page_range["bottom"]) / 2.0
-            size_x = 1.5 * (page_range["right"] - page_range["left"])
-            size_y = 1.5 * (page_range["top"] - page_range["bottom"])
 
         # step 1
         bias, table_outline_elem_lst, table_raw_dash_lst, dashline_parser_xs, dashline_parser_ys = \
@@ -1485,10 +1489,9 @@ class simplePDF2HTML(PDF2HTML):
             show_page_layout_lines(layout, table_outline_elem_lst)
         # step 2
         table_dashlines = self.get_tables_dashlines(table_raw_dash_lst, bias)
-        print table_dashlines
+        #print table_dashlines
 
         for idx,dashline in enumerate(table_dashlines):
-            print idx
             if dashline['x0'] not in dashline_parser_xs:
                 dashline_parser_xs.append(dashline['x0'])
             if dashline['x1'] not in dashline_parser_xs:
@@ -1500,8 +1503,6 @@ class simplePDF2HTML(PDF2HTML):
         dashline_parser_xs.sort()
         dashline_parser_ys.sort()
 
-
-
         table_outline_elem_lst = self.get_tables_elements_all(table_outline_elem_lst, table_dashlines,
                                                               dashline_parser_xs, dashline_parser_ys)
 
@@ -1511,75 +1512,17 @@ class simplePDF2HTML(PDF2HTML):
         # Step 4: 然后规范一下坐标值
         # 开始整理表格内容
         print "number of potential tables in this page is {0}".format(len(clean_tables_lst))
-        #show_page_layout(layout)
 
-        try:
-            raw_lines, raw_points, points_visited = self.get_tables_raw_frame(clean_tables_lst, bias)
-        except Exception:
-            pass
 
-        if debug:
-            point_list = raw_points.copy()
-            def debug_walk(tmp_point):
-                if points_visited[tmp_point]:
-                    return
-                points_visited[tmp_point] = True
-                #draw.dot(tmp_point[0], tmp_point[1], size=15, color_string="green")
-                next_links = point_list[tmp_point]
-                for idx in next_links:
-                    line = raw_lines[idx]
-                    debug_walk(line[0])
-                    debug_walk(line[1])
-            test_point = point_list.keys()[0]
-            test_value = point_list[test_point]
-            debug_walk(test_point)
-            print "debug walk done"
-        #show_page_layout_lines(layout, raw_lines)
+        raw_lines, raw_points, points_visited = self.get_tables_raw_frame(clean_tables_lst, bias)
+
 
         # step 5
-
-        #show_page_layout_points(layout, raw_points)
         table_list, table_line_list, divider_list = self.get_tables_init_info(raw_points, raw_lines, points_visited)
-
-        print len(divider_list)
-        #
 
         # step 6
         divider_list = self.get_tables_divider_list(table_list, table_line_list, divider_list, bias)
-        #show_page_layout_post(layout, divider_list)
-        # test
 
-
-        if debug:
-            for table in table_list:
-                for pt in table:
-                     draw.dot(pt[0], pt[1], size=10, color_string="red")
-                 # raw_input()
-            for table in table_list:
-                n_pts = len(table)
-                draw.dot(table[0][0], table[0][1], size=10, color_string="red")
-                draw.dot(table[n_pts - 1][0], table[n_pts - 1][1], size=10, color_string="red")
-            for line in raw_lines:
-                draw.line(line[0][0], line[0][1], line[1][0], line[1][1])
-
-
-        if debug:
-            # debug
-            for lst in divider_list:
-                print len(lst)
-                for divider in lst:
-                    print divider
-                    start = divider[0]
-                    end = divider[1]
-                    draw.set_color("red")
-                    # print start[0], start[1], end[0], end[1]
-                    draw.line(start[0], start[1], end[0], end[1])
-
-
-        if debug:
-            raw_input()
-
-        # print "the number of tables we detected is {0}".format(len(table_list))
 
         return table_list, bias, divider_list
 
