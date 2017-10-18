@@ -1,5 +1,7 @@
 #coding=utf-8
 import os
+from datetime import datetime
+
 
 
 class Log(object):
@@ -17,21 +19,24 @@ class Log(object):
             os.makedirs(os.path.join(l1_dir, l2_dir))
         return os.path.join(l1_dir, l2_dir, basename)
 
+    def t(self):
+        return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
     def log(self, type, fname, info=''):
         self.func[type](fname, info)
 
     def miner_error(self, fname, info):
         with open(self.miner_ex_log, 'a') as f:
-            f.write('{0}\t{1}\n'.format(fname, info))
+            f.write('{0}\t{1}\t{2}\n'.format(fname, info, self.t()))
 
     def empty(self, fname, info):
         with open(self.empty_ex_log, 'a') as f:
-            f.write('{0}\t{1}\n'.format(fname, info))
+            f.write('{0}\t{1}\t{2}\n'.format(fname, info, self.t()))
 
     def parse_error(self, fname, info):
         with open(self.parse_ex_log, 'a') as f:
-            f.write('{0}\t{1}\n'.format(fname, info))
+            f.write('{0}\t{1}\t{2}\n'.format(fname, info, self.t()))
 
     def success(self, fname, info):
         with open(self.success_log, 'a') as f:
-            f.write('{0}\t{1}\n'.format(fname, info))
+            f.write('{0}\t{1}\t{2}\n'.format(fname, info, self.t()))
