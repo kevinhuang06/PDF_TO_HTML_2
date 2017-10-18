@@ -50,6 +50,8 @@ class PDF2HTML(object):
             self.chinese_str('；')
         ]
         self.logger = Log('./data2', 'task1.log')
+        self.ex_page_no = 0
+        self.success = True
     # print "init"
     def __enter__(self):
         # print "enter"

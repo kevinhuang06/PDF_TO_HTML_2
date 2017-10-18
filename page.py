@@ -69,13 +69,18 @@ class Line(object):
 
     def is_sub_by_separator(self, separator):
         text_unicode = self.text.decode('utf-8')
-        base_word = {u'第': '', u'章': '', u'节': '',
+        base_word = { u'第': '', u'章': '', u'节': '',
                 u'一': 1, u'二': 2, u'三': 3, u'四': 4, u'五': 5,
                 u'六': 6, u'七': 7, u'八': 8, u'九': 9, u'十': 10
                 }
 
         if separator in text_unicode:
             phrase = text_unicode.split(separator)[0]
+            if u'第' in phrase:
+                if u'章' in phrase or u'节' in phrase:
+                    self.font_size = 30  # 将 章 节 的字号 统一到一个较大值
+                else:
+                    return False # 页眉处 '第 3 页'
             if phrase is not '':
                 is_subtitle = True
                 for c in phrase:
@@ -162,7 +167,7 @@ class Page(object):
 
         return '\n'.join(html)
 
-class Pdf(object):
+class Doc(object):
 
     def __init__(self):
         self.pages = []
@@ -187,6 +192,7 @@ class Pdf(object):
             return sorted(d.keys(),reverse=True)[i]
         else:
             return []
+
 
     def extract_subtitle(self):
         self.collect_possible_subtitle()

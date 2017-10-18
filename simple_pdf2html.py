@@ -21,7 +21,7 @@ from tools import *
 from visual import *
 from page import Line
 from page import Page
-from page import Pdf
+from page import Doc
 
 UCC = 0
 
@@ -42,11 +42,22 @@ class simplePDF2HTML(PDF2HTML):
         except Exception,ex:
             self.logger.log(0, self.pdf_path, ex)
             print ex
+            self.success = False
             return
 
-        print "writing to the HTML file..."
-        self.writeHTML()
-        self.logger.log(3, self.pdf_path)
+
+        try:
+            self.parse_to_doc()
+        except Exception,ex:
+            self.logger.log(2, self.pdf_path, '{0}\t{1}'.format(self.ex_page_no, ex))
+            self.success = False
+        print "HTML file:{0}".format(self.html_path)
+        with open(self.json_path, 'w') as f:
+            f.write(self.doc.dumps_to_json())
+        with open(self.html_path, 'w') as f:
+            f.write(self.doc.dumps_to_html())
+        if self.success:
+            self.logger.log(3, self.pdf_path)
 
     def simpleParse(self):
         # 创建一个PDF文档解析器对象
@@ -74,35 +85,6 @@ class simplePDF2HTML(PDF2HTML):
         # 字符转换规则
         self.replace = re.compile(r'\s+')
 
-    def writeHTML(self):
-        # print "write?"
-        self.write('<!DOCTYPE html>')
-        self.write('<html>')
-        self.level += 1
-        # write header
-        self.writeHead()
-        self.writeBody()
-        self.level -= 1
-        self.write('</html>')
-
-    def writeHead(self):
-        self.write('<head>')
-        self.level += 1
-        self.write('<meta http-equiv="Content-Type" content="text/html; charset=%s">\n' % self.codec)
-        self.write('<title>PDF格式转HTML</title>')
-        '''
-        self.write('<style>')
-        self.level += 1
-        self.write('p {')
-        self.level += 1
-        self.write('text-indent: 2.0em;')
-        self.level -= 1
-        self.write('};')
-        self.level -= 1
-        self.write('</style>')
-        '''
-        self.level -= 1
-        self.write('</head>')
 
     def empty_page(self, layout):
         text_box_cc = 0
@@ -117,9 +99,8 @@ class simplePDF2HTML(PDF2HTML):
             return True
         return False
 
-    def writeBody(self):
-        self.write('<body>')
-        self.level += 1
+
+    def parse_to_doc(self):
         # 循环遍历列表，每次处理一个page的内容
         page_idx = 1
         prev_text = None
@@ -128,9 +109,12 @@ class simplePDF2HTML(PDF2HTML):
         prev_indent = None
         prev_align = None
 
-        pdf = Pdf()
+        self.doc = Doc()
         for idx, miner_page in enumerate(PDFPage.create_pages(self.document)):
             page_idx = idx + 1
+            self.ex_page_no = idx + 1
+            if idx > 20:
+                break
             print 'processing page: %s'%idx
             self.interpreter.process_page(miner_page)
             # 接受该页面的LTPage对象
@@ -138,10 +122,8 @@ class simplePDF2HTML(PDF2HTML):
 
             if self.empty_page(layout):
                 self.logger.log(1, self.pdf_path, page_idx)
-                break
-            if idx > 0:
-                self.pages.append({'PageNo': idx, 'PageContent': self.page_html})
-                self.page_html = ""
+                self.success = False
+                return False
 
             page_lines,text_cols = parse_page_to_lines(layout)
             col_lines = []
@@ -150,8 +132,6 @@ class simplePDF2HTML(PDF2HTML):
 
             content_xrange, indent_list, fontsize_list = self.get_indent_info(layout, page_xrange)
             if len(indent_list) == 0 or len(fontsize_list) == 0:  # 空白页
-                print idx, "empty"
-
                 continue
             major_indents, map_indents, major_size = self.get_conclude(indent_list, fontsize_list)
             typical_length = (content_xrange[1] - content_xrange[0]) / major_size
@@ -170,23 +150,10 @@ class simplePDF2HTML(PDF2HTML):
             # 写入表格内容以外的其他内容
             page = self.dumps_text(idx, layout, in_table, table_drawn, table_frames, page_xrange, map_indents,\
                                 major_indents, typical_length, page_idx, content_xrange, major_size)
-            pdf.add(page)
-        pdf.extract_subtitle()
-        with open('data2/test.html', 'w') as f1:
-            print >>f1, pdf.dumps_to_html()
-        with open('data2/test.json', 'w') as f2:
-            print >>f2, pdf.dumps_to_json()
+            self.doc.add(page)
+        self.doc.extract_subtitle()
 
-        if prev_text:
-            self.write2(prev_text.strip(), prev_align, prev_size, prev_weight, prev_indent)
-            self.write('</div>', True)
 
-        self.pages.append({'PageNo': page_idx, 'PageContent': self.page_html})
-        self.page_html = ""
-
-        self.dumps_to_json()
-        self.level -= 1
-        self.write('</body>')
 
     def gene_table_frames(self, table_points_list, bias, table_divider_list):
         table_frames = []
@@ -217,15 +184,7 @@ class simplePDF2HTML(PDF2HTML):
                 x_idx += 1
                 if in_table[x_idx] != -1:
                     if not table_drawn[in_table[x_idx]]: # 保证 table
-                        #########
-                        if prev_text:
-                            self.write2(prev_text.strip(), prev_align, prev_size, prev_weight, prev_indent)
-                        prev_text = None
-                        #########
-                        # haven't drawn yet
-                        for str in table_frames[in_table[x_idx]].dumps_to_html(page_xrange):
-                            self.write(str, True)
-                        #self.draw_table(table_frames[in_table[x_idx]], page_xrange)
+
                         page.add(table_frames[in_table[x_idx]])
                         table_drawn[in_table[x_idx]] = True
                     continue
@@ -246,34 +205,7 @@ class simplePDF2HTML(PDF2HTML):
                 # raw_input()
 
                 page.add(Line(text, align, fontname, fontsize, indent,length, [actual_left, x.y0]))  #增加到page中
-                if (align == 'left'):
-                    # 检测当前行是否是一行的开头，之前行是否已结尾
-                    if prev_text == None:
-                        prev_length = 0
-                    ended = self.if_para_end(actual_left, major_indents, prev_length / typical_length)
-                    if ended:
-                        if prev_text:
-                            self.write2(prev_text.strip(), prev_align, prev_size, prev_weight, prev_indent)
-                        prev_text = None
-                    # 准备传给下一次迭代
-                    if prev_text:
-                        prev_text = prev_text + text
-                        prev_length = length
-                    else:
-                        prev_text = text
-                        prev_size = fontsize
-                        prev_weight = fontweight
-                        prev_indent = indent
-                        prev_align = align
-                        prev_length = length
-                else:
-                    if prev_text:
-                        self.write2(prev_text.strip(), prev_align, prev_size, prev_weight, prev_indent)
-                        prev_text = None
-                    self.write2(text.strip(), align, fontsize, fontweight, 0, page_id=page_idx)
 
-        self.level -= 1
-        self.write('</div>', True)
         page.merge_lines_to_paragraph()
         return page
         #page.dumps_to_html()
@@ -1330,7 +1262,6 @@ class simplePDF2HTML(PDF2HTML):
     def get_tables_divider_list(self, table_list, table_line_list, divider_list, bias):
         # get the regularized lines
         for i in range(len(table_list)):
-            print "table", i, len(table_list)
             tmp_xs = []
             tmp_ys = []
             tmp_table = table_list[i]
