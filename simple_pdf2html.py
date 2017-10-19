@@ -113,8 +113,6 @@ class simplePDF2HTML(PDF2HTML):
         for idx, miner_page in enumerate(PDFPage.create_pages(self.document)):
             page_idx = idx + 1
             self.ex_page_no = idx + 1
-            if idx > 20:
-                break
             print 'processing page: %s'%idx
             self.interpreter.process_page(miner_page)
             # 接受该页面的LTPage对象

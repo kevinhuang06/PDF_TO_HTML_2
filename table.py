@@ -228,17 +228,12 @@ class TableFrame(object):
                 rs = rowspan[i][j]
                 cs = colspan[i][j]
                 candy = 'align=\"middle\"'
-                res = re.search(r'[%\d,\.-]+', "".join(content))
-
-                if res and res.group() == "".join(content):
-                    candy = 'align=\"right\"'
 
                 if fontsize:
                     html.append('<td  rowspan="{1}" colspan="{2}" {3}>{0}</td>'.format(
                         "<br>".join(content), rs, cs, candy))
                 else:
-                    html.append(
-                        '<td rowspan="{1}" colspan="{2}" {3}>{0}</td>'.format("<br>".join(content), rs, cs, candy))
+                    html.append('<td rowspan="{1}" colspan="{2}" {3}>{0}</td>'.format("<br>".join(content), rs, cs, candy))
             html.append('</tr>')
 
         html.append('</table>')
