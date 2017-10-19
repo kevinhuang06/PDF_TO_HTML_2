@@ -77,8 +77,10 @@ class Line(object):
         if separator in text_unicode:
             phrase = text_unicode.split(separator)[0]
             if u'第' in phrase:
-                if u'章' in phrase or u'节' in phrase:
+                if u'章' in phrase:
                     self.font_size = 30  # 将 章 节 的字号 统一到一个较大值
+                elif u'节' in phrase:
+                    self.font_size = 28  # 将 章 节 的字号 统一到一个较大值
                 else:
                     return False # 页眉处 '第 3 页'
             if phrase is not '':
