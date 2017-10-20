@@ -177,7 +177,8 @@ class Page(object):
                     html.append(para.dumps_to_html())
                     last_text = para.text
         if last_text is not None:
-            if last_text.isdigit():
+            res = re.match('[ \d/-]+', last_text)
+            if res and res.group() == last_text:
                 del html[-1]
 
         return '\n'.join(html)
@@ -222,7 +223,7 @@ class Doc(object):
         for i,para in enumerate(self.raw_subtitles):
             if u'第' not in para.subtitle_id:
                 para.font_size = min(max_font_size,para.font_size) # 一、 一 这种类型的 最大不超过 第一个一
-            print i, para.font_name, para.left, para.font_size, para.text
+            #print i, para.font_name, para.left, para.font_size, para.text
             if para.font_size not in fonts:
                 fonts[para.font_size] = []
             fonts[para.font_size].append(i)

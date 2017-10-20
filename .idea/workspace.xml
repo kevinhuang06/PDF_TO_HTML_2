@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="551def05-5913-4f7a-9a3a-2147cdf2f527" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page.py" afterPath="$PROJECT_DIR$/page.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/simple_pdf2html.py" afterPath="$PROJECT_DIR$/simple_pdf2html.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.py" afterPath="$PROJECT_DIR$/test.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,16 +15,16 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/transpose$convert.coverage" NAME="convert Coverage Results" MODIFIED="1507805705684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/PDF_TO_HTML_2$test.coverage" NAME="test Coverage Results" MODIFIED="1508494350732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PDF_TO_HTML_2$test.coverage" NAME="test Coverage Results" MODIFIED="1508496440501" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/transpose$test.coverage" NAME="test Coverage Results" MODIFIED="1508485838686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="simple_pdf2html.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="simple_pdf2html.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/simple_pdf2html.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="208" column="29" lean-forward="true" selection-start-line="208" selection-start-column="29" selection-end-line="208" selection-end-column="29" />
+            <state relative-caret-position="110">
+              <caret line="885" column="14" lean-forward="false" selection-start-line="885" selection-start-column="9" selection-end-line="885" selection-end-column="14" />
               <folding>
                 <element signature="e#15#25#0" expanded="true" />
                 <element signature="e#5415#5769#0" expanded="false" />
@@ -37,7 +37,6 @@
                 <element signature="e#16323#16744#0" expanded="false" />
                 <element signature="e#16814#17023#0" expanded="false" />
                 <element signature="e#17070#20949#0" expanded="false" />
-                <element signature="e#21073#34147#0" expanded="false" />
                 <element signature="e#34226#34922#0" expanded="false" />
                 <element signature="e#35007#39027#0" expanded="false" />
                 <element signature="e#39197#41423#0" expanded="false" />
@@ -122,22 +121,21 @@
       <file leaf-file-name="page.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="154" column="21" lean-forward="false" selection-start-line="154" selection-start-column="21" selection-end-line="154" selection-end-column="21" />
+            <state relative-caret-position="140">
+              <caret line="227" column="42" lean-forward="true" selection-start-line="227" selection-start-column="42" selection-end-line="227" selection-end-column="42" />
               <folding>
                 <element signature="e#15#24#0" expanded="true" />
                 <element signature="e#694#747#0" expanded="false" />
                 <element signature="e#782#837#0" expanded="false" />
                 <element signature="e#1541#1849#0" expanded="false" />
                 <element signature="e#1890#2301#0" expanded="false" />
-                <element signature="e#6145#6372#0" expanded="false" />
-                <element signature="e#6558#8457#0" expanded="false" />
+                <element signature="e#6208#6435#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -160,7 +158,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>text_line</find>
       <find>parser</find>
       <find>self.parser</find>
       <find>self.document</find>
@@ -185,11 +182,12 @@
       <find>decod</find>
       <find>一</find>
       <find>u'一'</find>
-      <find>print</find>
       <find>indent</find>
       <find>min_indent</find>
       <find>possible_subtitle</find>
       <find>bot</find>
+      <find>del</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -221,12 +219,12 @@
         <option value="$USER_HOME$/Downloads/Chrome/2015-04-29-1200953290.json" />
         <option value="$PROJECT_DIR$/table.py" />
         <option value="$PROJECT_DIR$/pdf2html.py" />
+        <option value="$PROJECT_DIR$/simple_pdf2html.py" />
+        <option value="$PROJECT_DIR$/simple_pdf2html.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/simple_pdf2html.py" />
         <option value="$PROJECT_DIR$/page.py" />
         <option value="$PROJECT_DIR$/page.py" />
-        <option value="$PROJECT_DIR$/simple_pdf2html.py" />
       </list>
     </option>
   </component>
@@ -509,11 +507,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25977653" sideWeight="0.28819445" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32756132" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25396827" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22366522" sideWeight="0.49444443" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28138527" sideWeight="0.49444443" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40981242" sideWeight="0.7118056" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -572,7 +570,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="311" />
+      <option name="time" value="312" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -648,8 +646,7 @@
             <element signature="e#782#837#0" expanded="false" />
             <element signature="e#1541#1849#0" expanded="false" />
             <element signature="e#1890#2301#0" expanded="false" />
-            <element signature="e#6145#6372#0" expanded="false" />
-            <element signature="e#6558#8457#0" expanded="false" />
+            <element signature="e#6208#6435#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -697,7 +694,6 @@
             <element signature="e#16323#16744#0" expanded="false" />
             <element signature="e#16814#17023#0" expanded="false" />
             <element signature="e#17070#20949#0" expanded="false" />
-            <element signature="e#21073#34147#0" expanded="false" />
             <element signature="e#34226#34922#0" expanded="false" />
             <element signature="e#35007#39027#0" expanded="false" />
             <element signature="e#39197#41423#0" expanded="false" />
@@ -1010,36 +1006,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="36" />
-          <folding>
-            <element signature="e#15#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/page.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="154" column="21" lean-forward="false" selection-start-line="154" selection-start-column="21" selection-end-line="154" selection-end-column="21" />
-          <folding>
-            <element signature="e#15#24#0" expanded="true" />
-            <element signature="e#694#747#0" expanded="false" />
-            <element signature="e#782#837#0" expanded="false" />
-            <element signature="e#1541#1849#0" expanded="false" />
-            <element signature="e#1890#2301#0" expanded="false" />
-            <element signature="e#6145#6372#0" expanded="false" />
-            <element signature="e#6558#8457#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/simple_pdf2html.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="208" column="29" lean-forward="true" selection-start-line="208" selection-start-column="29" selection-end-line="208" selection-end-column="29" />
+        <state relative-caret-position="110">
+          <caret line="885" column="14" lean-forward="false" selection-start-line="885" selection-start-column="9" selection-end-line="885" selection-end-column="14" />
           <folding>
             <element signature="e#15#25#0" expanded="true" />
             <element signature="e#5415#5769#0" expanded="false" />
@@ -1052,7 +1022,6 @@
             <element signature="e#16323#16744#0" expanded="false" />
             <element signature="e#16814#17023#0" expanded="false" />
             <element signature="e#17070#20949#0" expanded="false" />
-            <element signature="e#21073#34147#0" expanded="false" />
             <element signature="e#34226#34922#0" expanded="false" />
             <element signature="e#35007#39027#0" expanded="false" />
             <element signature="e#39197#41423#0" expanded="false" />
@@ -1062,6 +1031,31 @@
             <element signature="e#51990#58640#0" expanded="false" />
             <element signature="e#58695#60432#0" expanded="false" />
             <element signature="e#60489#64158#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="227" column="42" lean-forward="true" selection-start-line="227" selection-start-column="42" selection-end-line="227" selection-end-column="42" />
+          <folding>
+            <element signature="e#15#24#0" expanded="true" />
+            <element signature="e#694#747#0" expanded="false" />
+            <element signature="e#782#837#0" expanded="false" />
+            <element signature="e#1541#1849#0" expanded="false" />
+            <element signature="e#1890#2301#0" expanded="false" />
+            <element signature="e#6208#6435#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="36" />
+          <folding>
+            <element signature="e#15#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
