@@ -194,18 +194,15 @@ class simplePDF2HTML(PDF2HTML):
                         page.add(table_frames[in_table[x_idx]])
                         table_drawn[in_table[x_idx]] = True
                     continue
-
+                text = x.get_text()
                 fontname, fontsize, location, line_width = self.get_font(x)
 
-                # text=re.sub(self.replace,'',x.get_text())
-                text = x.get_text()
                 actual_left = map_indents[location[0]]
                 indent = self.get_indent(actual_left, major_indents)
                 align = self.get_align(content_xrange, location, line_width, fontsize, major_size, debug=text)
                 if fontsize == 0:
                     fontsize = 12
                 length = line_width / fontsize
-                # print x.x0, x.x1, x.y0, x.y1
                 # print text
                 # raw_input()
 
@@ -306,7 +303,8 @@ class simplePDF2HTML(PDF2HTML):
                     fontsize = round(char.size)
                     fontname = char.fontname.decode('gbk').encode('utf-8')  # ABCDEE-黑体 即加粗 ABCDEE-宋体 即不加粗
                     #print fontname, char.get_text(), fontsize
-                    if fontname in self.fontweight_dict.keys():
+                    c = char.get_text()
+                    if c > u'一' and c < u'龥':  # 中文字范围
                         return fontname, fontsize, location, line_width
             return default_fontname, line_height, location, line_width
 
@@ -1061,8 +1059,7 @@ class simplePDF2HTML(PDF2HTML):
             while i >= 0:
                 new_x_range = self.line_merge(clean_tables_area[i][0], tmp_x_range, bias=bias)
                 new_y_range = self.line_merge(clean_tables_area[i][1], tmp_y_range, bias=bias)
-                # print clean_tables_area[i][0], tmp_x_range, new_x_range
-                # print clean_tables_area[i][1], tmp_y_range, new_y_range
+
                 if len(new_x_range) == 1 and len(new_y_range) == 1:
                     # successfully merged
                     tmp_x_range[0] = new_x_range[0][0]
@@ -1119,7 +1116,6 @@ class simplePDF2HTML(PDF2HTML):
                 if isLine:  # a line
                     # fetch data
                     if isLine == 'x':
-                        # print 'x'
                         if idx_left == -1:
                             raw_points_x.append(left)
                         idx_right = self.get_closest_idx(right, raw_points_x, bias)
@@ -1309,7 +1305,6 @@ class simplePDF2HTML(PDF2HTML):
                 pt1 = min(line[0], line[1])
                 pt2 = max(line[0], line[1])
                 if pt1[0] == pt2[0]:
-                    # print "same x"
                     tmp_x = pt1[0]
                     tmp_y = [pt1[1], pt2[1]]
                     keep_xs[tmp_x] = True
@@ -1422,8 +1417,7 @@ class simplePDF2HTML(PDF2HTML):
         # step 1
         bias, table_outline_elem_lst, table_raw_dash_lst, dashline_parser_xs, dashline_parser_ys = \
             self.get_tables_elements(layout,text_cols)
-        if UCC:
-            show_page_layout_lines(layout, table_outline_elem_lst)
+
         # step 2
         table_dashlines = self.get_tables_dashlines(table_raw_dash_lst, bias)
         #print table_dashlines

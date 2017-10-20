@@ -2,6 +2,8 @@
 
 import re
 import json
+import sys
+
 from pdfminer.layout import *
 from table import TableFrame
 
@@ -12,7 +14,7 @@ class Line(object):
         self.text = text.strip()
         self.align = align
         self.font_size = round(font_size) #四舍五入
-        self.font_name = font_name.decode('gbk').encode('utf-8')
+        self.font_name = font_name
         self.indent = indent
         self.num_chars = num_chars
         self.left = bot_left[0]
@@ -33,18 +35,20 @@ class Line(object):
     def set_subtitle(self, is_subtitle):
         self.is_subtitle = is_subtitle
 
-    def is_new_para(self, min_indent, max_chars_in_a_line, last_l):
 
+    def is_new_para(self, major_min_indent, max_chars_in_a_line, last_l):
+        if self.possible_subtitle():
+            return True
         if self.font_size != last_l.font_size: # 字号需相等
             return True
         if self.font_name != last_l.font_name:
             return True
-        if self.left == min_indent:
+        if self.left <= major_min_indent: # 文本靠左
             # 除非此行比较短，否则认定为没有分段
-            if self.num_chars/max_chars_in_a_line < 0.7:
-                return True  # 顶到最有边，句子字符数，不及最多字符数的70%
-            return False  # 顶到最有边，句子字符数，多于最多字符数的70% （近似认为句子顶到最右边）
-        else:
+            if last_l.num_chars/max_chars_in_a_line < 0.7:
+                return True  #上一行文本写满了
+            return False  #
+        else:#比major_min_indent 大的，说明前边有空白符，肯定不合并
             return True
 
     def directory_index_format(self, ):
@@ -79,8 +83,6 @@ class Line(object):
             return False
 
         top_size = {u'章': 35, u'节': 30}
-        if u'第一节' in text_unicode:
-            pass
 
         if separator in text_unicode:
             phrase = text_unicode.split(separator)[0]
@@ -124,7 +126,7 @@ class Page(object):
         self.page_no = number
         self.elements = [] #line table
         self.paras = []
-        self.min_indent = min_indent
+        self.major_min_indent = min_indent
         self.max_chars_in_a_line = max_num_chars
         self.page_xrange = page_xrange
 
@@ -148,7 +150,9 @@ class Page(object):
                 if curr_para is None:
                     curr_para = ele
                 else:
-                    if ele.is_new_para(self.min_indent, self.max_chars_in_a_line, self.elements[i-1]):
+                    if u'出席' in ele.text:
+                        print __file__, sys._getframe().f_lineno
+                    if ele.is_new_para(self.major_min_indent, self.max_chars_in_a_line, self.elements[i-1]):
                         self.paras.append(curr_para)
                         curr_para = ele
                     else:
@@ -194,7 +198,7 @@ class Doc(object):
         for page in self.pages:
             for para in page.elements:
                 if isinstance(para, Line):
-                    if para.possible_subtitle():
+                    if para.is_subtitle:
                         self.raw_subtitles.append(para)
 
     def max_i_key(self, i, d):

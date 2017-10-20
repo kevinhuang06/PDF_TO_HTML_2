@@ -36,8 +36,8 @@ class PDF2HTML(object):
         self.curr_anchor_id = 1
         # http://webdesign.about.com/od/styleproperties/p/blspfontweight.htm
         self.fontweight_dict = {
-            self.chinese_str('ABCDEE+黑体'): 'bold',
-            self.chinese_str('ABCDEE+宋体'): 'normal'
+            self.chinese_str(u'ABCDEE+黑体'): 'bold',
+            self.chinese_str(u'ABCDEE+宋体'): 'normal'
         }
         self.endmark_list = [
             self.chinese_str('：'),
