@@ -4,3 +4,4 @@ expire/*
 pdf_image/
 parse_fail
 *pyc
+config.py

@@ -1,6 +1,7 @@
 #coding=utf-8
 
 import os
+import re
 import sys
 import gc
 import operator
@@ -12,14 +13,14 @@ sys.setdefaultencoding('utf8') #设置默认编码
 from log import Log
 
 class PDF2HTML(object):
-    def __init__(self, pdf_path, html_path, password="", codec='utf-8', bias_param=[1.5, 2]):
+    def __init__(self, pdf_path, task_name, password="", codec='utf-8', bias_param=[1.5, 2]):
         self.pdf_path = pdf_path
-        self.html_path = html_path
+        self.html_path =  pdf_path.split('.')[0] + '.html'
         self.codec = codec
         self.bias_param = bias_param
         self.reader = open(pdf_path, 'rb')
-        self.writer = open(html_path, 'w')  # 'a'
-        self.json_path = html_path.replace('html','json')
+        self.writer = open(self.html_path, 'w')  # 'a'
+        self.json_path = self.html_path.replace('html','json')
         self.debug_log = open('debug.log', 'a')
         self.password = password
         self.device = None
@@ -35,21 +36,8 @@ class PDF2HTML(object):
         self.subtitles = []
         self.curr_anchor_id = 1
         # http://webdesign.about.com/od/styleproperties/p/blspfontweight.htm
-        self.fontweight_dict = {
-            self.chinese_str(u'ABCDEE+黑体'): 'bold',
-            self.chinese_str(u'ABCDEE+宋体'): 'normal'
-        }
-        self.endmark_list = [
-            self.chinese_str('：'),
-            self.chinese_str(':'),
-            self.chinese_str('。'),
-            self.chinese_str('？'),
-            self.chinese_str('?'),
-            self.chinese_str('！'),
-            self.chinese_str('!'),
-            self.chinese_str('；')
-        ]
-        self.logger = Log('./data2', 'task1.log')
+
+        self.logger = Log('./log', task_name)
         self.ex_page_no = 0
         self.success = True
     # print "init"

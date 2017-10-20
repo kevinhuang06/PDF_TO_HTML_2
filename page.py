@@ -149,10 +149,11 @@ class Page(object):
 
             if isinstance(ele, Line):
                 ele.possible_subtitle()
+                if '一、' in ele.text:
+                    pass
                 if curr_para is None:
                     curr_para = ele
                 else:
-
                     if ele.is_new_para(self.major_min_indent, self.max_chars_in_a_line, self.elements[i-1]):
                         self.paras.append(curr_para)
                         curr_para = ele
@@ -214,7 +215,7 @@ class Doc(object):
         self.collect_possible_subtitle()
         # 合并第几章节，肯定是
         fonts = {}
-        max_font_size = 12
+        max_font_size = 10
         for i, para in enumerate(self.raw_subtitles):
             if para.subtitle_id == u'一':
                 max_font_size = max(max_font_size, para.font_size)
