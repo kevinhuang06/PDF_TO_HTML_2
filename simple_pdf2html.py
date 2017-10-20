@@ -18,7 +18,7 @@ from pdf2html import PDF2HTML
 from table import TableFrame
 
 from tools import *
-from visual import *
+#from visual import *
 from page import Line
 from page import Page
 from page import Doc
@@ -89,12 +89,16 @@ class simplePDF2HTML(PDF2HTML):
     def empty_page(self, layout):
         text_box_cc = 0
         page_area = layout.width * layout.height
+        sum_area = 0
         for x in layout:
             if isinstance(x, LTTextBoxHorizontal):
-                text_box_cc += 1
+
             if isinstance(x, LTFigure): # 单个Figure占比过大
-                if (x.width * x.height) / page_area > 0.5:
-                    return True
+                if (x.width * x.height) / page_area > 0.15:
+                    sum_area += x.width * x.height
+
+            if sum_area/page_area > 0.8: #大面积被图片覆盖
+                return True
         if text_box_cc is 0:
             return True
         return False
@@ -113,8 +117,6 @@ class simplePDF2HTML(PDF2HTML):
         for idx, miner_page in enumerate(PDFPage.create_pages(self.document)):
             page_idx = idx + 1
             self.ex_page_no = idx + 1
-            if idx > 30:
-                break
             print 'processing page: %s'%idx
             self.interpreter.process_page(miner_page)
             # 接受该页面的LTPage对象
@@ -131,8 +133,7 @@ class simplePDF2HTML(PDF2HTML):
             page_xrange = (layout.x0, layout.x1)
 
             content_xrange, indent_list, fontsize_list = self.get_indent_info(layout, page_xrange)
-            if len(indent_list) == 0 or len(fontsize_list) == 0:  # 空白页
-                continue
+
             major_indents, map_indents, major_size = self.get_conclude(indent_list, fontsize_list)
             typical_length = (content_xrange[1] - content_xrange[0]) / major_size
             # get table contents in advance

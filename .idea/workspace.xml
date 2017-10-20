@@ -11,37 +11,37 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/transpose$convert.coverage" NAME="convert Coverage Results" MODIFIED="1507805705684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/transpose$test.coverage" NAME="test Coverage Results" MODIFIED="1508470575197" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../PDF_TO_HTML_2" />
+    <SUITE FILE_PATH="coverage/transpose$test.coverage" NAME="test Coverage Results" MODIFIED="1508471901136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../PDF_TO_HTML_2" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="simple_pdf2html.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="simple_pdf2html.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/simple_pdf2html.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="97" column="50" lean-forward="true" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
               <folding>
                 <element signature="e#15#24#0" expanded="true" />
-                <element signature="e#5127#5481#0" expanded="false" />
-                <element signature="e#5520#5721#0" expanded="false" />
-                <element signature="e#7529#7918#0" expanded="false" />
-                <element signature="e#7994#10351#0" expanded="false" />
-                <element signature="e#10441#11173#0" expanded="false" />
-                <element signature="e#13367#13679#0" expanded="false" />
-                <element signature="e#15692#16028#0" expanded="false" />
-                <element signature="e#16072#16493#0" expanded="false" />
-                <element signature="e#16563#16772#0" expanded="false" />
-                <element signature="e#16819#20698#0" expanded="false" />
-                <element signature="e#20822#33896#0" expanded="false" />
-                <element signature="e#33975#34671#0" expanded="false" />
-                <element signature="e#34756#38776#0" expanded="false" />
-                <element signature="e#38946#41172#0" expanded="false" />
-                <element signature="e#41265#43310#0" expanded="false" />
-                <element signature="e#43394#50015#0" expanded="false" />
-                <element signature="e#50100#51824#0" expanded="false" />
-                <element signature="e#51922#58609#0" expanded="false" />
-                <element signature="e#58664#60483#0" expanded="false" />
-                <element signature="e#60540#64209#0" expanded="false" />
+                <element signature="e#5074#5428#0" expanded="false" />
+                <element signature="e#5467#5668#0" expanded="false" />
+                <element signature="e#7476#7865#0" expanded="false" />
+                <element signature="e#7941#10298#0" expanded="false" />
+                <element signature="e#10388#11120#0" expanded="false" />
+                <element signature="e#13314#13626#0" expanded="false" />
+                <element signature="e#15639#15975#0" expanded="false" />
+                <element signature="e#16019#16440#0" expanded="false" />
+                <element signature="e#16510#16719#0" expanded="false" />
+                <element signature="e#16766#20645#0" expanded="false" />
+                <element signature="e#20769#33843#0" expanded="false" />
+                <element signature="e#33922#34618#0" expanded="false" />
+                <element signature="e#34703#38723#0" expanded="false" />
+                <element signature="e#38893#41119#0" expanded="false" />
+                <element signature="e#41212#43257#0" expanded="false" />
+                <element signature="e#43341#49962#0" expanded="false" />
+                <element signature="e#50047#51771#0" expanded="false" />
+                <element signature="e#51869#58556#0" expanded="false" />
+                <element signature="e#58611#60430#0" expanded="false" />
+                <element signature="e#60487#64156#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -107,8 +107,8 @@
       <file leaf-file-name="draw.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/draw.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
+            <state relative-caret-position="373">
+              <caret line="29" column="34" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -126,7 +126,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="page.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/page.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="155">
@@ -145,8 +145,8 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="210">
+              <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
               <folding>
                 <element signature="e#15#26#0" expanded="true" />
               </folding>
@@ -193,8 +193,8 @@
       <find>print</find>
       <find>div</find>
       <find>assert</find>
-      <find>get_font</find>
       <find>min_indent</find>
+      <find>get_font</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -229,9 +229,9 @@
         <option value="$USER_HOME$/Downloads/Chrome/2015-04-29-1200953290.json" />
         <option value="$PROJECT_DIR$/../PDF_TO_HTML_2/table.py" />
         <option value="$PROJECT_DIR$/../PDF_TO_HTML_2/pdf2html.py" />
-        <option value="$PROJECT_DIR$/../PDF_TO_HTML_2/simple_pdf2html.py" />
         <option value="$PROJECT_DIR$/../PDF_TO_HTML_2/page.py" />
         <option value="$PROJECT_DIR$/../PDF_TO_HTML_2/test.py" />
+        <option value="$PROJECT_DIR$/../PDF_TO_HTML_2/simple_pdf2html.py" />
       </list>
     </option>
   </component>
@@ -521,7 +521,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22366522" sideWeight="0.49444443" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0995671" sideWeight="0.7118056" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37662336" sideWeight="0.7118056" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -547,7 +547,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="239" />
+      <option name="time" value="251" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -593,26 +593,26 @@
           <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="21" />
           <folding>
             <element signature="e#15#24#0" expanded="true" />
-            <element signature="e#5127#5481#0" expanded="false" />
-            <element signature="e#5520#5721#0" expanded="false" />
-            <element signature="e#7529#7918#0" expanded="false" />
-            <element signature="e#7994#10351#0" expanded="false" />
-            <element signature="e#10441#11173#0" expanded="false" />
-            <element signature="e#13367#13679#0" expanded="false" />
-            <element signature="e#15692#16028#0" expanded="false" />
-            <element signature="e#16072#16493#0" expanded="false" />
-            <element signature="e#16563#16772#0" expanded="false" />
-            <element signature="e#16819#20698#0" expanded="false" />
-            <element signature="e#20822#33896#0" expanded="false" />
-            <element signature="e#33975#34671#0" expanded="false" />
-            <element signature="e#34756#38776#0" expanded="false" />
-            <element signature="e#38946#41172#0" expanded="false" />
-            <element signature="e#41265#43310#0" expanded="false" />
-            <element signature="e#43394#50015#0" expanded="false" />
-            <element signature="e#50100#51824#0" expanded="false" />
-            <element signature="e#51922#58609#0" expanded="false" />
-            <element signature="e#58664#60483#0" expanded="false" />
-            <element signature="e#60540#64209#0" expanded="false" />
+            <element signature="e#5074#5428#0" expanded="false" />
+            <element signature="e#5467#5668#0" expanded="false" />
+            <element signature="e#7476#7865#0" expanded="false" />
+            <element signature="e#7941#10298#0" expanded="false" />
+            <element signature="e#10388#11120#0" expanded="false" />
+            <element signature="e#13314#13626#0" expanded="false" />
+            <element signature="e#15639#15975#0" expanded="false" />
+            <element signature="e#16019#16440#0" expanded="false" />
+            <element signature="e#16510#16719#0" expanded="false" />
+            <element signature="e#16766#20645#0" expanded="false" />
+            <element signature="e#20769#33843#0" expanded="false" />
+            <element signature="e#33922#34618#0" expanded="false" />
+            <element signature="e#34703#38723#0" expanded="false" />
+            <element signature="e#38893#41119#0" expanded="false" />
+            <element signature="e#41212#43257#0" expanded="false" />
+            <element signature="e#43341#49962#0" expanded="false" />
+            <element signature="e#50047#51771#0" expanded="false" />
+            <element signature="e#51869#58556#0" expanded="false" />
+            <element signature="e#58611#60430#0" expanded="false" />
+            <element signature="e#60487#64156#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -910,70 +910,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/draw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="12" column="19" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/table.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
           <folding>
             <element signature="e#15#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/simple_pdf2html.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-          <folding>
-            <element signature="e#15#24#0" expanded="true" />
-            <element signature="e#5127#5481#0" expanded="false" />
-            <element signature="e#5520#5721#0" expanded="false" />
-            <element signature="e#7529#7918#0" expanded="false" />
-            <element signature="e#7994#10351#0" expanded="false" />
-            <element signature="e#10441#11173#0" expanded="false" />
-            <element signature="e#13367#13679#0" expanded="false" />
-            <element signature="e#15692#16028#0" expanded="false" />
-            <element signature="e#16072#16493#0" expanded="false" />
-            <element signature="e#16563#16772#0" expanded="false" />
-            <element signature="e#16819#20698#0" expanded="false" />
-            <element signature="e#20822#33896#0" expanded="false" />
-            <element signature="e#33975#34671#0" expanded="false" />
-            <element signature="e#34756#38776#0" expanded="false" />
-            <element signature="e#38946#41172#0" expanded="false" />
-            <element signature="e#41265#43310#0" expanded="false" />
-            <element signature="e#43394#50015#0" expanded="false" />
-            <element signature="e#50100#51824#0" expanded="false" />
-            <element signature="e#51922#58609#0" expanded="false" />
-            <element signature="e#58664#60483#0" expanded="false" />
-            <element signature="e#60540#64209#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#15#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/miner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding>
-            <element signature="e#15#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -988,6 +930,64 @@
             <element signature="e#798#853#0" expanded="false" />
             <element signature="e#1488#1796#0" expanded="false" />
             <element signature="e#1837#2248#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/draw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="29" column="34" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/miner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding>
+            <element signature="e#15#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+          <folding>
+            <element signature="e#15#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/simple_pdf2html.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="97" column="50" lean-forward="true" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
+          <folding>
+            <element signature="e#15#24#0" expanded="true" />
+            <element signature="e#5074#5428#0" expanded="false" />
+            <element signature="e#5467#5668#0" expanded="false" />
+            <element signature="e#7476#7865#0" expanded="false" />
+            <element signature="e#7941#10298#0" expanded="false" />
+            <element signature="e#10388#11120#0" expanded="false" />
+            <element signature="e#13314#13626#0" expanded="false" />
+            <element signature="e#15639#15975#0" expanded="false" />
+            <element signature="e#16019#16440#0" expanded="false" />
+            <element signature="e#16510#16719#0" expanded="false" />
+            <element signature="e#16766#20645#0" expanded="false" />
+            <element signature="e#20769#33843#0" expanded="false" />
+            <element signature="e#33922#34618#0" expanded="false" />
+            <element signature="e#34703#38723#0" expanded="false" />
+            <element signature="e#38893#41119#0" expanded="false" />
+            <element signature="e#41212#43257#0" expanded="false" />
+            <element signature="e#43341#49962#0" expanded="false" />
+            <element signature="e#50047#51771#0" expanded="false" />
+            <element signature="e#51869#58556#0" expanded="false" />
+            <element signature="e#58611#60430#0" expanded="false" />
+            <element signature="e#60487#64156#0" expanded="false" />
           </folding>
         </state>
       </provider>

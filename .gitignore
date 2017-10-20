@@ -3,3 +3,4 @@ data2/*
 expire/*
 pdf_image/
 parse_fail
+*pyc
