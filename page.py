@@ -49,6 +49,7 @@ class Line(object):
                 return True  #上一行文本写满了
             return False  #
         else:#比major_min_indent 大的，说明前边有空白符，肯定不合并
+
             return True
 
     def directory_index_format(self, ):
@@ -150,8 +151,8 @@ class Page(object):
                 if curr_para is None:
                     curr_para = ele
                 else:
-                    if u'（三）' in ele.text:
-                        print __file__, sys._getframe().f_lineno
+                    #if u'一、' in ele.text:
+                    #    print __file__, sys._getframe().f_lineno
                     if ele.is_new_para(self.major_min_indent, self.max_chars_in_a_line, self.elements[i-1]):
                         self.paras.append(curr_para)
                         curr_para = ele

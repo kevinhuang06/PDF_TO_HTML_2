@@ -199,8 +199,7 @@ class simplePDF2HTML(PDF2HTML):
                 fontname, fontsize, location, line_width = self.get_font(x)
 
                 actual_left = map_indents[location[0]]
-                if u'-009' in text:
-                    print __file__, sys._getframe().f_lineno
+
                 indent = self.get_indent(actual_left, major_indents)
                 align = self.get_align(content_xrange, location, line_width, fontsize, major_size, debug=text)
                 if fontsize == 0:
@@ -208,8 +207,9 @@ class simplePDF2HTML(PDF2HTML):
                 length = line_width / fontsize
                 # print text
                 # raw_input()
+                for t in text.split('\n \n'):
+                    page.add(Line(t, align, fontname, fontsize, indent,length, location))  #增加到page中
 
-                page.add(Line(text, align, fontname, fontsize, indent,length, location))  #增加到page中
 
         page.merge_lines_to_paragraph()
         return page
