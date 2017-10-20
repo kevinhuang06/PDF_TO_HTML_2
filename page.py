@@ -10,15 +10,15 @@ from table import TableFrame
 
 class Line(object):
 
-    def __init__(self, text, align, font_name, font_size, indent, num_chars, bot_left):
+    def __init__(self, text, align, font_name, font_size, indent, num_chars, location):
         self.text = text.strip()
         self.align = align
         self.font_size = round(font_size) #四舍五入
         self.font_name = font_name
         self.indent = indent
         self.num_chars = num_chars
-        self.left = bot_left[0]
-        self.bot = bot_left[1] # TextLine的下边界
+        self.left = location[0]
+        self.right = location[1] # TextLine的右边界
         # 目录
         self.is_subtitle = False
         self.page_no = None
@@ -39,13 +39,13 @@ class Line(object):
     def is_new_para(self, major_min_indent, max_chars_in_a_line, last_l):
         if self.possible_subtitle():
             return True
-        if self.font_size != last_l.font_size: # 字号需相等
-            return True
-        if self.font_name != last_l.font_name:
-            return True
+        #if self.font_size != last_l.font_size: # 字号需相等
+        #    return True
+        #if self.font_name != last_l.font_name:
+        #    return True
         if self.left <= major_min_indent: # 文本靠左
             # 除非此行比较短，否则认定为没有分段
-            if last_l.num_chars/max_chars_in_a_line < 0.7:
+            if last_l.num_chars/max_chars_in_a_line < 0.9:
                 return True  #上一行文本写满了
             return False  #
         else:#比major_min_indent 大的，说明前边有空白符，肯定不合并
@@ -150,7 +150,7 @@ class Page(object):
                 if curr_para is None:
                     curr_para = ele
                 else:
-                    if u'出席' in ele.text:
+                    if u'（三）' in ele.text:
                         print __file__, sys._getframe().f_lineno
                     if ele.is_new_para(self.major_min_indent, self.max_chars_in_a_line, self.elements[i-1]):
                         self.paras.append(curr_para)

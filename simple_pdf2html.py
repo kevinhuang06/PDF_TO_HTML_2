@@ -1,5 +1,6 @@
 #coding=utf-8
 
+import sys
 import re
 import copy
 import json
@@ -198,6 +199,8 @@ class simplePDF2HTML(PDF2HTML):
                 fontname, fontsize, location, line_width = self.get_font(x)
 
                 actual_left = map_indents[location[0]]
+                if u'-009' in text:
+                    print __file__, sys._getframe().f_lineno
                 indent = self.get_indent(actual_left, major_indents)
                 align = self.get_align(content_xrange, location, line_width, fontsize, major_size, debug=text)
                 if fontsize == 0:
@@ -206,7 +209,7 @@ class simplePDF2HTML(PDF2HTML):
                 # print text
                 # raw_input()
 
-                page.add(Line(text, align, fontname, fontsize, indent,length, [actual_left, x.y0]))  #增加到page中
+                page.add(Line(text, align, fontname, fontsize, indent,length, location))  #增加到page中
 
         page.merge_lines_to_paragraph()
         return page
@@ -304,7 +307,7 @@ class simplePDF2HTML(PDF2HTML):
                     fontname = char.fontname.decode('gbk').encode('utf-8')  # ABCDEE-黑体 即加粗 ABCDEE-宋体 即不加粗
                     #print fontname, char.get_text(), fontsize
                     c = char.get_text()
-                    if c > u'一' and c < u'龥':  # 中文字范围
+                    if re.match(r'\S', c): # 查看第一个可打印字符位置
                         return fontname, fontsize, location, line_width
             return default_fontname, line_height, location, line_width
 
