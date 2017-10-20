@@ -11,37 +11,37 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/transpose$convert.coverage" NAME="convert Coverage Results" MODIFIED="1507805705684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/transpose$test.coverage" NAME="test Coverage Results" MODIFIED="1508471901136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../PDF_TO_HTML_2" />
+    <SUITE FILE_PATH="coverage/transpose$test.coverage" NAME="test Coverage Results" MODIFIED="1508479665886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../PDF_TO_HTML_2" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="simple_pdf2html.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="simple_pdf2html.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/simple_pdf2html.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="97" column="50" lean-forward="true" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
+            <state relative-caret-position="258">
+              <caret line="105" column="41" lean-forward="false" selection-start-line="105" selection-start-column="31" selection-end-line="105" selection-end-column="41" />
               <folding>
                 <element signature="e#15#24#0" expanded="true" />
-                <element signature="e#5074#5428#0" expanded="false" />
-                <element signature="e#5467#5668#0" expanded="false" />
-                <element signature="e#7476#7865#0" expanded="false" />
-                <element signature="e#7941#10298#0" expanded="false" />
-                <element signature="e#10388#11120#0" expanded="false" />
-                <element signature="e#13314#13626#0" expanded="false" />
-                <element signature="e#15639#15975#0" expanded="false" />
-                <element signature="e#16019#16440#0" expanded="false" />
-                <element signature="e#16510#16719#0" expanded="false" />
-                <element signature="e#16766#20645#0" expanded="false" />
-                <element signature="e#20769#33843#0" expanded="false" />
-                <element signature="e#33922#34618#0" expanded="false" />
-                <element signature="e#34703#38723#0" expanded="false" />
-                <element signature="e#38893#41119#0" expanded="false" />
-                <element signature="e#41212#43257#0" expanded="false" />
-                <element signature="e#43341#49962#0" expanded="false" />
-                <element signature="e#50047#51771#0" expanded="false" />
-                <element signature="e#51869#58556#0" expanded="false" />
-                <element signature="e#58611#60430#0" expanded="false" />
-                <element signature="e#60487#64156#0" expanded="false" />
+                <element signature="e#5404#5758#0" expanded="false" />
+                <element signature="e#5797#5998#0" expanded="false" />
+                <element signature="e#7806#8195#0" expanded="false" />
+                <element signature="e#8271#10628#0" expanded="false" />
+                <element signature="e#10718#11450#0" expanded="false" />
+                <element signature="e#13644#13956#0" expanded="false" />
+                <element signature="e#15969#16305#0" expanded="false" />
+                <element signature="e#16349#16770#0" expanded="false" />
+                <element signature="e#16840#17049#0" expanded="false" />
+                <element signature="e#17096#20975#0" expanded="false" />
+                <element signature="e#21099#34173#0" expanded="false" />
+                <element signature="e#34252#34948#0" expanded="false" />
+                <element signature="e#35033#39053#0" expanded="false" />
+                <element signature="e#39223#41449#0" expanded="false" />
+                <element signature="e#41542#43587#0" expanded="false" />
+                <element signature="e#43671#50292#0" expanded="false" />
+                <element signature="e#50377#52101#0" expanded="false" />
+                <element signature="e#52199#58886#0" expanded="false" />
+                <element signature="e#58941#60760#0" expanded="false" />
+                <element signature="e#60817#64486#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -50,21 +50,9 @@
       <file leaf-file-name="tools.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/tools.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-44">
+            <state relative-caret-position="125">
               <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="log.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/log.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="33" lean-forward="false" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
-              <folding>
-                <element signature="e#14#23#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -82,7 +70,7 @@
       <file leaf-file-name="miner.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/miner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
+            <state relative-caret-position="-117">
               <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
               <folding>
                 <element signature="e#15#63#0" expanded="true" />
@@ -129,8 +117,8 @@
       <file leaf-file-name="page.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/page.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="257" column="0" lean-forward="true" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
+            <state relative-caret-position="-98">
+              <caret line="89" column="41" lean-forward="true" selection-start-line="89" selection-start-column="41" selection-end-line="89" selection-end-column="41" />
               <folding>
                 <element signature="e#15#24#0" expanded="true" />
                 <element signature="e#710#763#0" expanded="false" />
@@ -142,11 +130,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+            <state relative-caret-position="195">
+              <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="36" />
               <folding>
                 <element signature="e#15#26#0" expanded="true" />
               </folding>
@@ -165,7 +153,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>if_close_to</find>
       <find>is_page_number</find>
       <find>is_catalog</find>
       <find>subtitles</find>
@@ -195,6 +182,7 @@
       <find>assert</find>
       <find>min_indent</find>
       <find>get_font</find>
+      <find>decod</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -547,23 +535,16 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="251" />
+      <option name="time" value="278" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="u'{0}'.format(content)" language="Python" />
-        <watch expression="u'%s'%(content)" language="Python" />
-        <watch expression="'{0}'.format(content)" language="Python" />
-        <watch expression="__py_debug_temp_var_877794796" />
-        <watch expression="u'{0}'.format(content)" language="Python" />
-        <watch expression="'{0}'.format(content)" language="Python" />
-        <watch expression="'{0}'.format(content).encode('gbk')" language="Python" />
-        <watch expression="u'{0}'.format(content)" language="Python" />
-        <watch expression="u('{0}'.format(content))" language="Python" />
-        <watch expression="type(content)" language="Python" />
-        <watch expression="type(content)" language="Python" />
-        <watch expression="str(content)" language="Python" />
-        <watch expression="str(content).encode('utf-8') " language="Python" />
+        <watch expression="fontname.decode('gbk').encode('utf-8')" language="Python" />
+        <watch expression="phrase[phrase.find(c)]" language="Python" />
+        <watch expression="phrase.find(c)" language="Python" />
+        <watch expression="x.get_text()" language="Python" />
+        <watch expression="c &gt; 0x4e00" language="Python" />
+        <watch expression="c &lt; 0x9fa5" language="Python" />
       </configuration>
     </watches-manager>
   </component>
@@ -593,26 +574,26 @@
           <caret line="14" column="21" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="21" />
           <folding>
             <element signature="e#15#24#0" expanded="true" />
-            <element signature="e#5074#5428#0" expanded="false" />
-            <element signature="e#5467#5668#0" expanded="false" />
-            <element signature="e#7476#7865#0" expanded="false" />
-            <element signature="e#7941#10298#0" expanded="false" />
-            <element signature="e#10388#11120#0" expanded="false" />
-            <element signature="e#13314#13626#0" expanded="false" />
-            <element signature="e#15639#15975#0" expanded="false" />
-            <element signature="e#16019#16440#0" expanded="false" />
-            <element signature="e#16510#16719#0" expanded="false" />
-            <element signature="e#16766#20645#0" expanded="false" />
-            <element signature="e#20769#33843#0" expanded="false" />
-            <element signature="e#33922#34618#0" expanded="false" />
-            <element signature="e#34703#38723#0" expanded="false" />
-            <element signature="e#38893#41119#0" expanded="false" />
-            <element signature="e#41212#43257#0" expanded="false" />
-            <element signature="e#43341#49962#0" expanded="false" />
-            <element signature="e#50047#51771#0" expanded="false" />
-            <element signature="e#51869#58556#0" expanded="false" />
-            <element signature="e#58611#60430#0" expanded="false" />
-            <element signature="e#60487#64156#0" expanded="false" />
+            <element signature="e#5404#5758#0" expanded="false" />
+            <element signature="e#5797#5998#0" expanded="false" />
+            <element signature="e#7806#8195#0" expanded="false" />
+            <element signature="e#8271#10628#0" expanded="false" />
+            <element signature="e#10718#11450#0" expanded="false" />
+            <element signature="e#13644#13956#0" expanded="false" />
+            <element signature="e#15969#16305#0" expanded="false" />
+            <element signature="e#16349#16770#0" expanded="false" />
+            <element signature="e#16840#17049#0" expanded="false" />
+            <element signature="e#17096#20975#0" expanded="false" />
+            <element signature="e#21099#34173#0" expanded="false" />
+            <element signature="e#34252#34948#0" expanded="false" />
+            <element signature="e#35033#39053#0" expanded="false" />
+            <element signature="e#39223#41449#0" expanded="false" />
+            <element signature="e#41542#43587#0" expanded="false" />
+            <element signature="e#43671#50292#0" expanded="false" />
+            <element signature="e#50377#52101#0" expanded="false" />
+            <element signature="e#52199#58886#0" expanded="false" />
+            <element signature="e#58941#60760#0" expanded="false" />
+            <element signature="e#60817#64486#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -672,17 +653,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/expire/simplePDF2html.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4189">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#33#42#0" expanded="false" />
-            <element signature="e#692#1769#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -891,14 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/tools.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/pdf2html.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-660">
@@ -907,6 +869,64 @@
             <element signature="e#15#24#0" expanded="true" />
             <element signature="e#3983#5118#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/draw.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="29" column="34" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-98">
+          <caret line="89" column="41" lean-forward="true" selection-start-line="89" selection-start-column="41" selection-end-line="89" selection-end-column="41" />
+          <folding>
+            <element signature="e#15#24#0" expanded="true" />
+            <element signature="e#710#763#0" expanded="false" />
+            <element signature="e#798#853#0" expanded="false" />
+            <element signature="e#1488#1796#0" expanded="false" />
+            <element signature="e#1837#2248#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/miner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-117">
+          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <folding>
+            <element signature="e#15#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/mpython/lib/python2.7/site-packages/matplotlib/backends/qt_editor/formlayout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="199" column="8" lean-forward="false" selection-start-line="199" selection-start-column="8" selection-end-line="199" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/expire/simplePDF2html.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-720">
+          <caret line="1077" column="8" lean-forward="false" selection-start-line="1077" selection-start-column="8" selection-end-line="1077" selection-end-column="8" />
+          <folding>
+            <element signature="e#692#1769#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -920,74 +940,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/page.py">
+    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/simple_pdf2html.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="257" column="0" lean-forward="true" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
+        <state relative-caret-position="258">
+          <caret line="105" column="41" lean-forward="false" selection-start-line="105" selection-start-column="31" selection-end-line="105" selection-end-column="41" />
           <folding>
             <element signature="e#15#24#0" expanded="true" />
-            <element signature="e#710#763#0" expanded="false" />
-            <element signature="e#798#853#0" expanded="false" />
-            <element signature="e#1488#1796#0" expanded="false" />
-            <element signature="e#1837#2248#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/draw.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="29" column="34" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/miner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          <folding>
-            <element signature="e#15#63#0" expanded="true" />
+            <element signature="e#5404#5758#0" expanded="false" />
+            <element signature="e#5797#5998#0" expanded="false" />
+            <element signature="e#7806#8195#0" expanded="false" />
+            <element signature="e#8271#10628#0" expanded="false" />
+            <element signature="e#10718#11450#0" expanded="false" />
+            <element signature="e#13644#13956#0" expanded="false" />
+            <element signature="e#15969#16305#0" expanded="false" />
+            <element signature="e#16349#16770#0" expanded="false" />
+            <element signature="e#16840#17049#0" expanded="false" />
+            <element signature="e#17096#20975#0" expanded="false" />
+            <element signature="e#21099#34173#0" expanded="false" />
+            <element signature="e#34252#34948#0" expanded="false" />
+            <element signature="e#35033#39053#0" expanded="false" />
+            <element signature="e#39223#41449#0" expanded="false" />
+            <element signature="e#41542#43587#0" expanded="false" />
+            <element signature="e#43671#50292#0" expanded="false" />
+            <element signature="e#50377#52101#0" expanded="false" />
+            <element signature="e#52199#58886#0" expanded="false" />
+            <element signature="e#58941#60760#0" expanded="false" />
+            <element signature="e#60817#64486#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="36" lean-forward="false" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
+        <state relative-caret-position="195">
+          <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="36" />
           <folding>
             <element signature="e#15#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../PDF_TO_HTML_2/simple_pdf2html.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="97" column="50" lean-forward="true" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
-          <folding>
-            <element signature="e#15#24#0" expanded="true" />
-            <element signature="e#5074#5428#0" expanded="false" />
-            <element signature="e#5467#5668#0" expanded="false" />
-            <element signature="e#7476#7865#0" expanded="false" />
-            <element signature="e#7941#10298#0" expanded="false" />
-            <element signature="e#10388#11120#0" expanded="false" />
-            <element signature="e#13314#13626#0" expanded="false" />
-            <element signature="e#15639#15975#0" expanded="false" />
-            <element signature="e#16019#16440#0" expanded="false" />
-            <element signature="e#16510#16719#0" expanded="false" />
-            <element signature="e#16766#20645#0" expanded="false" />
-            <element signature="e#20769#33843#0" expanded="false" />
-            <element signature="e#33922#34618#0" expanded="false" />
-            <element signature="e#34703#38723#0" expanded="false" />
-            <element signature="e#38893#41119#0" expanded="false" />
-            <element signature="e#41212#43257#0" expanded="false" />
-            <element signature="e#43341#49962#0" expanded="false" />
-            <element signature="e#50047#51771#0" expanded="false" />
-            <element signature="e#51869#58556#0" expanded="false" />
-            <element signature="e#58611#60430#0" expanded="false" />
-            <element signature="e#60487#64156#0" expanded="false" />
           </folding>
         </state>
       </provider>

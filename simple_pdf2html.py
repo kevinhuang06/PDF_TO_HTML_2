@@ -91,15 +91,19 @@ class simplePDF2HTML(PDF2HTML):
         page_area = layout.width * layout.height
         sum_area = 0
         for x in layout:
-            if isinstance(x, LTTextBoxHorizontal):
 
+            if text_box_cc is 0 and isinstance(x, LTTextBoxHorizontal):
+                for c in x.get_text():
+                    if c > u'一' and c < u'龥': #中文字范围
+                        text_box_cc += 1
+                        break
             if isinstance(x, LTFigure): # 单个Figure占比过大
-                if (x.width * x.height) / page_area > 0.15:
+                if (x.width * x.height) / page_area > 0.1:
                     sum_area += x.width * x.height
-
-            if sum_area/page_area > 0.8: #大面积被图片覆盖
+            #print sum_area/page_area
+            if sum_area/page_area > 0.8: # 大面积被图片覆盖
                 return True
-        if text_box_cc is 0:
+        if text_box_cc is 0:  #页面中至少有一个汉字
             return True
         return False
 
@@ -133,7 +137,8 @@ class simplePDF2HTML(PDF2HTML):
             page_xrange = (layout.x0, layout.x1)
 
             content_xrange, indent_list, fontsize_list = self.get_indent_info(layout, page_xrange)
-
+            if len(indent_list) == 0 or len(fontsize_list) == 0:  # 空白页
+                continue
             major_indents, map_indents, major_size = self.get_conclude(indent_list, fontsize_list)
             typical_length = (content_xrange[1] - content_xrange[0]) / major_size
             # get table contents in advance
