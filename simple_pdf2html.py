@@ -113,6 +113,8 @@ class simplePDF2HTML(PDF2HTML):
         for idx, miner_page in enumerate(PDFPage.create_pages(self.document)):
             page_idx = idx + 1
             self.ex_page_no = idx + 1
+            if idx > 30:
+                break
             print 'processing page: %s'%idx
             self.interpreter.process_page(miner_page)
             # 接受该页面的LTPage对象
@@ -188,7 +190,6 @@ class simplePDF2HTML(PDF2HTML):
                     continue
 
                 fontname, fontsize, location, line_width = self.get_font(x)
-                fontweight = self.fontweight_dict[fontname]
 
                 # text=re.sub(self.replace,'',x.get_text())
                 text = x.get_text()
@@ -295,6 +296,7 @@ class simplePDF2HTML(PDF2HTML):
                 if isinstance(char, LTAnno):
                     continue
                 else:
+                    location = (round(char.x0), round(line.x1))
                     fontsize = round(char.size)
                     fontname = char.fontname.decode('gbk').encode('utf-8')  # ABCDEE-黑体 即加粗 ABCDEE-宋体 即不加粗
                     #print fontname, char.get_text(), fontsize

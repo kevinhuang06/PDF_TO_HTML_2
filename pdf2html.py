@@ -19,7 +19,7 @@ class PDF2HTML(object):
         self.bias_param = bias_param
         self.reader = open(pdf_path, 'rb')
         self.writer = open(html_path, 'w')  # 'a'
-        self.json_path = os.path.join("/Users/kevinhuang/svn/pdfweb/pdfweb/resources/data/", os.path.basename(html_path).replace('html','json'))
+        self.json_path = html_path.replace('html','json')
         self.debug_log = open('debug.log', 'a')
         self.password = password
         self.device = None

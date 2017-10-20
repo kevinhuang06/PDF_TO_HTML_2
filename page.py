@@ -21,6 +21,7 @@ class Line(object):
         self.is_subtitle = False
         self.page_no = None
         self.line_no = None
+        self.subtitle_id = None
 
     def set_line_id(self, page_no, line_no):
         self.page_no = page_no
@@ -35,6 +36,8 @@ class Line(object):
     def is_new_para(self, min_indent, max_chars_in_a_line, last_l):
 
         if self.font_size != last_l.font_size: # 字号需相等
+            return True
+        if self.font_name != last_l.font_name:
             return True
         if self.left == min_indent:
             # 除非此行比较短，否则认定为没有分段
@@ -69,26 +72,31 @@ class Line(object):
 
     def is_sub_by_separator(self, separator):
         text_unicode = self.text.decode('utf-8')
-        base_word = { u'第': '', u'章': '', u'节': '',
-                u'一': 1, u'二': 2, u'三': 3, u'四': 4, u'五': 5,
+        base_word = { u'一': 1, u'二': 2, u'三': 3, u'四': 4, u'五': 5,
                 u'六': 6, u'七': 7, u'八': 8, u'九': 9, u'十': 10
                 }
+        if u'......' in text_unicode: # 丢弃掉 目录索引
+            return False
+
+        top_size = {u'章': 35, u'节': 30}
+        if u'第一节' in text_unicode:
+            pass
 
         if separator in text_unicode:
             phrase = text_unicode.split(separator)[0]
-            if u'第' in phrase:
-                if u'章' in phrase:
-                    self.font_size = 30  # 将 章 节 的字号 统一到一个较大值
-                elif u'节' in phrase:
-                    self.font_size = 28  # 将 章 节 的字号 统一到一个较大值
-                else:
-                    return False # 页眉处 '第 3 页'
+            if len(phrase) >=3: #有可能是 第x章， 第x节
+                if u'第' == phrase[0] and phrase[-1] in [u'章', u'节']:
+                    self.font_size = top_size[phrase[-1]]  # 将 章 节 的字号 统一到一个较大值
+                    phrase = phrase[1:-1]
+
             if phrase is not '':
                 is_subtitle = True
                 for c in phrase:
                     if c not in base_word:
                         is_subtitle = False
                 self.set_subtitle(is_subtitle)
+                if is_subtitle:
+                    self.subtitle_id = text_unicode.split(separator)[0]
                 return is_subtitle
 
         return False
@@ -200,12 +208,21 @@ class Doc(object):
         self.collect_possible_subtitle()
         # 合并第几章节，肯定是
         fonts = {}
+        max_font_size = 12
+        for i, para in enumerate(self.raw_subtitles):
+            if para.subtitle_id == u'一':
+                max_font_size = max(max_font_size, para.font_size)
+                break
+
         for i,para in enumerate(self.raw_subtitles):
-            if round(para.font_size) not in fonts:
+            if u'第' not in para.subtitle_id:
+                para.font_size = min(max_font_size,para.font_size) # 一、 一 这种类型的 最大不超过 第一个一
+            print i, para.font_name, para.left, para.font_size, para.text
+            if para.font_size not in fonts:
                 fonts[para.font_size] = []
             fonts[para.font_size].append(i)
         top_raw_id = []
-        if fonts: # 至少存在一个 subtitle
+        if len(fonts) > 0 : # 至少存在一个 subtitle
             for raw_id in fonts[self.max_i_key(0, fonts)]:
                 sub = {}
                 sub['stName'] = self.raw_subtitles[raw_id].text
@@ -215,10 +232,18 @@ class Doc(object):
                 top_raw_id.append(raw_id)
 
         if len(fonts) > 1: # 存在二级标题
+            # 选出处在 一级标题内部，最多的标题
+            fonts.pop(self.max_i_key(0, fonts))
+            l,key = 0,0
+            for k in fonts:  # 找出最长的列表
+                if len(fonts[k]) > l:
+                    l = max(l, len(fonts[k]))
+                    key = k
+
             top_raw_id.append(len(self.raw_subtitles)) #方便处理最后一个
             for i in range(0,len(top_raw_id)-1):
                 for raw_id in range(top_raw_id[i]+1, top_raw_id[i+1]):
-                    if raw_id in fonts[self.max_i_key(1, fonts)]: # 需要被拆分到 一级标题中去
+                    if raw_id in fonts[key]: # 需要被拆分到一级标题中去
                         second_sub = {}
                         second_sub['stName'] = self.raw_subtitles[raw_id].text
                         second_sub['anchorId'] = self.raw_subtitles[raw_id].anchor_id()
