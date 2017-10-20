@@ -12,7 +12,7 @@ name_list = []
 #fname = 'data/table_example_16.PDF'
 #fname = 'pdf_image/2016-01-28-1201949742.PDF'
 # fname = 'data2/2016-04-28-1202256878.PDF'
-fname = 'data2/2017-07-26-1203737383.PDF'
+fname = 'data2/2017-08-16-1203819466.PDF'
 
 #for name in glob.glob('data2/2017-05-12-1203637710.PDF'):
 #	name_list.append(name)

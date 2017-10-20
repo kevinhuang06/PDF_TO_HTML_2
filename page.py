@@ -37,7 +37,7 @@ class Line(object):
 
 
     def is_new_para(self, major_min_indent, max_chars_in_a_line, last_l):
-        if self.possible_subtitle():
+        if self.is_subtitle:
             return True
         #if self.font_size != last_l.font_size: # 字号需相等
         #    return True
@@ -148,11 +148,11 @@ class Page(object):
                 self.paras.append(ele)
 
             if isinstance(ele, Line):
+                ele.possible_subtitle()
                 if curr_para is None:
                     curr_para = ele
                 else:
-                    #if u'一、' in ele.text:
-                    #    print __file__, sys._getframe().f_lineno
+
                     if ele.is_new_para(self.major_min_indent, self.max_chars_in_a_line, self.elements[i-1]):
                         self.paras.append(curr_para)
                         curr_para = ele
