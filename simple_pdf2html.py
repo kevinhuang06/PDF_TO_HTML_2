@@ -52,7 +52,7 @@ class simplePDF2HTML(PDF2HTML):
         except Exception,ex:
             self.logger.log(2, self.pdf_path, '{0}\t{1}'.format(self.ex_page_no, ex))
             self.success = False
-        print "HTML file:{0}".format(self.html_path)
+        print "PDF file:{0}".format(self.pdf_path)
         with open(self.json_path, 'w') as f:
             f.write(self.doc.dumps_to_json())
         with open(self.html_path, 'w') as f:
@@ -101,7 +101,6 @@ class simplePDF2HTML(PDF2HTML):
             if isinstance(x, LTFigure): # 单个Figure占比过大
                 if (x.width * x.height) / page_area > 0.1:
                     sum_area += x.width * x.height
-            #print sum_area/page_area
             if sum_area/page_area > 0.8: # 大面积被图片覆盖
                 return True
         if text_box_cc is 0:  #页面中至少有一个汉字
@@ -505,7 +504,6 @@ class simplePDF2HTML(PDF2HTML):
 
         for pair in merge_pair[::-1]:
             for l in my_tables[pair[0]]:
-                # print l
                 # 0 是下边的table, 1 是上边的table
                 if pair[0] < pair[1]:
                     my_tables[pair[1]].insert(0, l)
@@ -879,14 +877,6 @@ class simplePDF2HTML(PDF2HTML):
             table_outline_elem_lst.append(tmp_elem)
 
 
-
-        #raw_lines = []
-
-
-        #print len(table_raw_dash_lst),len(table_outline_elem_lst)
-
-    ###
-
         if max_stroke >= 0:
             bias = self.bias_param[0] * max_stroke  # 3 # 2 # 1.5
         else:
@@ -945,7 +935,6 @@ class simplePDF2HTML(PDF2HTML):
             for dot_y in candidate_ys[1:]:
                 last_y_idx = len(lines_y_list) - 1
                 last_line = lines_y_list[last_y_idx]
-                # print line_merge(last_line, dot_y, bias=bias)
                 merged_result = self.line_merge(last_line, dot_y, bias=bias)
                 if len(merged_result) == 1:
                     # successfully merged
@@ -1272,7 +1261,6 @@ class simplePDF2HTML(PDF2HTML):
             tmp_table = table_list[i]
             tmp_lines = table_line_list[i]
 
-            # print tmp_table
             for pt in tmp_table:
                 pt_x = pt[0]
                 pt_y = pt[1]
@@ -1423,7 +1411,6 @@ class simplePDF2HTML(PDF2HTML):
 
         # step 2
         table_dashlines = self.get_tables_dashlines(table_raw_dash_lst, bias)
-        #print table_dashlines
 
         for idx,dashline in enumerate(table_dashlines):
             if dashline['x0'] not in dashline_parser_xs:
@@ -1445,7 +1432,7 @@ class simplePDF2HTML(PDF2HTML):
 
         # Step 4: 然后规范一下坐标值
         # 开始整理表格内容
-        print "number of potential tables in this page is {0}".format(len(clean_tables_lst))
+        #print "number of potential tables in this page is {0}".format(len(clean_tables_lst))
 
 
         raw_lines, raw_points, points_visited = self.get_tables_raw_frame(clean_tables_lst, bias)

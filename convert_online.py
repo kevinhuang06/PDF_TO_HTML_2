@@ -1,16 +1,16 @@
 #coding=utf-8
 
 import os
-
+import sys
 from config import Config
 from storage import Oss
 from storage import Task
 from storage import AnnounceSql
 from simple_pdf2html import *
 
-
+task_name = 'test'
 task = Task()
-oss = Oss('test')
+oss = Oss(task_name)
 ann_sql = AnnounceSql()
 
 while True:
@@ -20,7 +20,7 @@ while True:
         pdf_storage_path = os.path.join(Config.PDF_STORAGE_DIR, oss_pdf)
         if oss.download(oss_pdf, pdf_storage_path):
             # 解析 pdf -> json
-            with simplePDF2HTML(pdf_storage_path) as wizard: # 向魔法一样转换
+            with simplePDF2HTML(pdf_storage_path, task_name) as wizard: # 向魔法一样转换
                 bias = [2, 3]  # [[2, 3], [1.5, 2], [3, 5]]
                 wizard.convert(bias)
                 if wizard.success:
@@ -29,4 +29,5 @@ while True:
                     # 写 oss_json -> mysql
                     ann_sql.update_item(oss_pdf)
         #完成一个pdf 的转换
+    sys.exit(0)
 

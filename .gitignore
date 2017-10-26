@@ -1,8 +1,13 @@
+#folder
 data/*
 data2/*
-expire/*
 pdf_image/
-parse_fail
-*pyc
-config.py
 .idea/inspectionProfiles/
+
+# file
+nohup.out
+data
+data2
+config.py
+pdfminer
+*pyc

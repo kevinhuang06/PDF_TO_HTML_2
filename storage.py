@@ -12,7 +12,7 @@ from log import Log
 from config import Config
 
 class Oss(object):
-    def __init__(self):
+    def __init__(self, task_name):
 
         access_key_id = os.getenv('OSS_TEST_ACCESS_KEY_ID', Config.OSS_TEST_ACCESS_KEY_ID)
         access_key_secret = os.getenv('OSS_TEST_ACCESS_KEY_SECRET', Config.OSS_TEST_ACCESS_KEY_SECRET)
@@ -20,7 +20,7 @@ class Oss(object):
         endpoint = os.getenv('OSS_TEST_ENDPOINT', Config.OSS_TEST_ENDPOINT)
         # 创建Bucket对象，所有Object相关的接口都可以通过Bucket对象来进行
         self.bucket = oss2.Bucket(oss2.Auth(access_key_id, access_key_secret), endpoint, bucket_name)
-        self.logger = Log()
+        self.logger = Log(Config.LOG_DIR, task_name)
 
     def upload(self, file_path):
         try:
@@ -53,7 +53,7 @@ class AnnounceSql(object):
             self.conn = MySQLdb.connect(host=Config.ANN_HOST, port=Config.ANN_PORT,
                 user=Config.ANN_USER, passwd=Config.ANN_PASSWORD, db=Config.ANN_DB)
         else:
-            self.ping(True)
+            self.conn.ping(True)
 
     def update_item(self, oss_pdf):
         code = oss_pdf.split('/')[-2]
@@ -63,6 +63,7 @@ class AnnounceSql(object):
         self.ensure_connection()
         cur = self.conn.cursor()
         sql = 'update announcement SET json_url=\'%s\' where oss_url=\'%s\'' % (json_oss_path, pdf_oss_path)
+        print sql
         cur.execute(sql)
         cur.close()
         self.conn.commit()
