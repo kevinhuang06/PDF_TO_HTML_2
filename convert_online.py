@@ -10,7 +10,7 @@ from simple_pdf2html import *
 
 
 task = Task()
-oss = Oss()
+oss = Oss('test')
 ann_sql = AnnounceSql()
 
 while True:
