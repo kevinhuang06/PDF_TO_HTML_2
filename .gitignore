@@ -3,7 +3,7 @@ data/*
 data2/*
 pdf_image/
 .idea/inspectionProfiles/
-
+log/
 # file
 nohup.out
 data
