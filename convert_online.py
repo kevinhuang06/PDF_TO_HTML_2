@@ -16,7 +16,9 @@ def sig_handler(sig, frame):
     global switch_on
     switch_on = False
     print 'signal: kill'
-
+def remove(path):
+    if os.path.isfile(path):
+        os.remove(path)
 
 
 task_name = sys.argv[1]
@@ -42,4 +44,8 @@ while switch_on:
                     # 写 oss_json -> mysql
                     ann_sql.update_item(oss_pdf)
                     print 'finish mysql update: %s'%oss_pdf
+                    # 移除工作区文件
+                remove(wizard.pdf_path)
+                remove(wizard.json_path)
+                remove(wizard.html_path)
         #完成一个pdf 的转换

@@ -39,6 +39,8 @@ class Oss(object):
             if not os.path.exists(os.path.dirname(store_path)):
                 os.makedirs(os.path.dirname(store_path))
             self.bucket.get_object_to_file(remote_path, store_path)
+            if not os.path.exists(store_path):
+                raise Exception('oss file: %s not exitsts'%remote_path)
             return True
         except Exception, ex:
             self.logger.log(4, remote_path, ex)

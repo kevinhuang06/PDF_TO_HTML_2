@@ -20,7 +20,7 @@ class PDF2HTML(object):
         self.bias_param = bias_param
         self.reader = open(pdf_path, 'rb')
         self.writer = open(self.html_path, 'w')  # 'a'
-        self.json_path = self.html_path.replace('html','json')
+        self.json_path = self.html_path.split('.')[0] + '.json'
         self.debug_log = open('debug.log', 'a')
         self.password = password
         self.device = None
